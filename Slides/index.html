@@ -1,275 +1,245 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>FSharp</title>
-		<link rel="stylesheet" href="reveal.css">
-		<link rel="stylesheet" href="white.css" id="theme">
-		<link rel="stylesheet" href="custom.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+
+<head>
+	<meta charset="utf-8">
+	<title>F# Presentation</title>
+	<link rel="stylesheet" href="reveal.css">
+	<link rel="stylesheet" href="white.css" id="theme">
+	<link rel="stylesheet" href="custom.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
 				<section>
-    				<section>
-    					<h1>F#</h1>
-    					<h2>Anwendungsbeispiele</h2>
-    				</section>
-    				<section>
-   						<h3>Agenda</h3>
-   						<ul>
-   							<li>Paradigmen</li>
-							<li>Allgemeine Informationen zu F#</li>
-							<li>Vergleich mit C#</li>
-							<li>Datentypen</li>
-   							<li>funktionale Patterns:
-   								<ul>
-									<li>Functor</li>
-   									<li>Komposition</li>
-   									<li>Monade</li>
-   								</ul>
-   							</li>
-   							<li>Anwendungsbeispiele</li>
-   						</ul>
-   					</section>
-	 			</section>
+					<h1>F#</h1>
+					<h2>Eine Einführung</h2>
+				</section>
+				<section>
+					<h3>Agenda</h3>
+					<ul>
+						<li>Funktionale Programmierung</li>
+						<li>Allgemeine Informationen zu F#</li>
+						<li>Vergleich mit C#</li>
+						<li>Datentypen</li>
+						<li>Funktionale Pattern
+							<ul>
+								<li>Functor</li>
+								<li>Komposition</li>
+								<li>Monade</li>
+							</ul>
+						</li>
+						<li>Anwendungsbeispiele</li>
+					</ul>
+				</section>
+			</section>
 
 
-				<!-- Paradigmen -->
+			<!-- Funktionale Programmierung -->
+			<section>
 				<section>
-					<section>
-						<h3>Paradigmen</h3>
-					    <img class="plain" width="70%" src="images/paradigms.png" alt="all paradigms" />
-						<small>https://www.info.ucl.ac.be/~pvr/paradigmsDIAGRAMeng101.pdf</small>
-					</section>
-					<section>
-						<h3>Paradigmen</h3>
-						<img class="plain" src="images/uncle_bob_paradigms.png" alt="Paradigms" />
-					</section>
-					<section>
-						<h3>Paradigmen</h3>
-						<dl>
-							<dt>Strukturiert</dt> <dd>Ohne Goto</dd> 
-							<dt>Objektorientiert</dt> <dd>Ohne Funktions-Zeiger</dd>
-							<dt>Funktional</dt> <dd>Ohne Zuweisung</dd>
-							<dt>Nebenläufig</dt> <dd>Ohne Zeit</dd>
-							<dt>Reaktiv</dt> <dd>Ohne Return</dd>
-						</dl>
-					</section>
-					<section>
-						<h3>Funktionale Programmierung</h3>
-						<ul>
-							<li>(pure) kleine Funktionen</li>
-							<li>Trennung von Logik und Effekten</li>
-							<li>Komposition</li>
-							<li>unveränderliche Daten</li>
-							<li>diverse funktionale Patterns</li>
-						</ul>
-					</section>
+					<h3>Funktionale Programmierung</h3>
+					<ul>
+						<li>(pure) kleine Funktionen</li>
+						<li>Trennung von Logik und Effekten</li>
+						<li>Komposition</li>
+						<li>unveränderliche Daten</li>
+						<li>diverse funktionale Patterns</li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- Fsharp Grundlagen -->
+			<section>
+				<section>
+					<h3>F# ist...</h3>
+					<ul>
+						<li>Open Source</li>
+						<li>Cross Platform</li>
+						<li>Functional-First</li>
+						<li>Abstammung: OCaml</li>
+					</ul>
 				</section>
 
-				<!-- Fsharp Grundlagen -->
 				<section>
-					<section>
-						<h3>F# ist...</h3>
-						<ul>
-							<li>Open Source</li>
-							<li>Cross Platform</li>
-							<li>Functional-First</li>
-							<li>Abstammung: OCaml</li>
-						</ul>
-					</section>
+					<h3>... kompakt</h3>
+					<img class="plain" width="70%" src="images/vergleich_fs_cs.png" alt="F# vs C#" />
+				</section>
 
-					<section>
-						<h3>... kompakt</h3>
-						<img class="plain" width="70%" src="images/vergleich_fs_cs.png" alt="F# vs C#" />
-					</section>
+				<section>
+					<h3>Vergleich zu C#</h3>
+					<img class="plain" width="70%" src="images/vergleich_klasse_cs_fs.png" alt="Klassenvergleich" />
+				</section>
 
-					<section>
-						<h3>Vergleich zu C#</h3>
-						<img class="plain" width="70%" src="images/vergleich_klasse_cs_fs.png" alt="Klassenvergleich" />
-					</section>
-
-					<!-- <section>
+				<!-- <section>
 						<h3>Datentypen C# vs. F#</h3>
 						<img class="plain" width="70%" src="images/vergleich_typen_cs_fs.png" alt="Klassenvergleich" />
 					</section> -->
 
-					<section>
-						<h3>Operationen in F#</h3>
-						<!-- <ul>
+				<section>
+					<h3>Operationen in F#</h3>
+					<!-- <ul>
 							<li>Bindung: Name -> Wert</li>
 							<li>Ausdrücke: Ergebnis-Typ</li>
 							<li>Pattern Matching: Fallunterscheidung</li>
 							<li>Rekursion statt Schleifen</li>
 						</ul> -->
-						<table>
-							<tr>
-								<th>C#</th>
-								<th>F#</th>
-							</tr>
-							<tr>
-								<td>Anweisungen</td>
-								<td>Ausdrücke</td>
-							</tr>
-							<tr>
-								<td>Zuweisung</td>
-								<td>Bindung</td>
-							</tr>
-							<tr>
-								<td>Verzweigung</td>
-								<td>Fallunterscheidung</td>
-							</tr>
-							<tr>
-								<td>Schleifen</td>
-								<td>Rekursion</td>
-							</tr>
-							<tr>
-								<td>imperativ: "wie"</td>
-								<td>deklarativ: "was"</td>
-							</tr>
-							</table>
-					</section>
-
-					<section>
-						<h3>Datentypen in F#</h3>
-						<dl>
-							<dt>Zahlen</dt><dd>byte, int, decimal</dd>
-							<dt>Zeichen</dt><dd>char, string</dd>
-							<dt>Funktionen</dt><dd>"Zeiger" auf Funktion</dd>
-							<dt>Kollektionen</dt><dd>List, Array, seq</dd>
-							<dt>Produkt-Typen</dt><dd>Tuple, Record</dd>
-							<dt>Summen-Typen</dt><dd>Discriminated Union</dd>
-							<dt>Sonstiges</dt><dd>Ausnahmen, Klassen</dd>
-						</dl>
-					</section>
-
-					<section>
-						<h3>Discriminated Unions</h3>
-						<img class="plain" width="70%" src="images/discriminated_union.png" alt="Discriminated Union" />
-					</section>
-					
-                    <section>
-						<h3>Listen</h3>
-						<img class="plain" width="70%" src="images/list.png" alt="Listen" />
-					</section>
-
-					<section>
-						<h3>Functor</h3>
-						<img class="plain" width="70%" src="images/option.png" alt="option" />
-					</section>
-	
-					<section>
-						<h3>Functor - Zusammenfassung</h3>
-						<ul>
-							<li>Typ mit "Zusatz-Eigenschaft"</li>
-							<li>map Operation</li>
-							<li>Funktion auf Inhalt anwenden<br/>
-							Funktion erhält Wert<br/>
-							Funktion liefert neuen Wert</li>
-							<li>Struktur erhaltend</li>
-						</ul>
-					</section>
-
-					<section>
-						<h3>Komposition</h3>
-						<img class="plain" width="70%" src="images/compose.png" alt="compose" />
-					</section>
-	
-					<section>
-						<h3>Komposition Problem</h3>
-						<img class="plain" width="70%" src="images/compose_impossible.png" alt="compose impossible" />
-					</section>
-
-					<section>
-						<h3>Monade</h3>
-						<img class="plain" width="70%" src="images/monade_definition.png" alt="monade" />
-						<small>https://www.youtube.com/watch?v=Nq-q2USYetQ&t=60s</small>
-					</section>
-
-					<section>
-						<h3>Monade</h3>
-						<img class="plain" width="70%" src="images/monade_example.png" alt="monade example" />
-					</section>
+					<table>
+						<tr>
+							<th>C#</th>
+							<th>F#</th>
+						</tr>
+						<tr>
+							<td>Anweisungen</td>
+							<td>Ausdrücke</td>
+						</tr>
+						<tr>
+							<td>Zuweisung</td>
+							<td>Bindung</td>
+						</tr>
+						<tr>
+							<td>Verzweigung</td>
+							<td>Fallunterscheidung</td>
+						</tr>
+						<tr>
+							<td>Schleifen</td>
+							<td>Rekursion</td>
+						</tr>
+					</table>
 				</section>
 
-				<!-- FSharp Erweiterungen -->
 				<section>
-					<!-- Type Provider -->
-					<section>
-						<h3>Type Provider</h3>
-						<img class="plain" width="70%" src="images/type_provider_definition.png" />
-						<ul>
-							<li>Beispiel-Daten auslesen beim Compilieren</li>
-							<li>Datentyp daraus entwickeln</li>
-						</ul>
-					</section>
-
-					<section>
-						<h3>Type Provider</h3>
-						<img class="plain" width="70%" src="images/type_provider.png" />
-					</section>
-
-					<!-- Pattern Matching + Active Pattern + Regex + Parser -->
-					<section>
-						<h3>Pattern Matching</h3>
-						<img class="plain" width="70%" src="images/parse_list.png" />
-					</section>
-
-					<section>
-							<h3>Pattern Matching</h3>
-							<img class="plain" width="70%" src="images/parse_filename.png" />
-					</section>
-
-					<!-- TODO: Producer - Consumer Muster -->
-					<section>
-						<h3>Producer - Consumer</h3>
-						<img class="plain" width="70%" src="images/producer_consumer_bpmn.png" />
-					</section>
-
-					<section>
-						<h3>Producer - Consumer</h3>
-						<img class="plain" width="70%" src="images/consumer.png" />
-					</section>
-
-					<!-- Bonus: Web Api -->
-					<section>
-						<h3>Giraffe Web API</h3>
-						<img class="plain" width="70%" src="images/giraffe-demo-ausschnitt.png" />
-					</section>
+					<h3>Datentypen in F#</h3>
+					<dl>
+						<dt>Zahlen</dt>
+						<dd>byte, int, decimal</dd>
+						<dt>Zeichen</dt>
+						<dd>char, string</dd>
+						<dt>Funktionen</dt>
+						<dd>"Zeiger" auf Funktion</dd>
+						<dt>Kollektionen</dt>
+						<dd>List, Array, seq</dd>
+						<dt>Produkt-Typen</dt>
+						<dd>Tuple, Record</dd>
+						<dt>Summen-Typen</dt>
+						<dd>Discriminated Union</dd>
+						<dt>Sonstiges</dt>
+						<dd>Ausnahmen, Klassen</dd>
+					</dl>
 				</section>
-				
-				<!-- ENDE -->
+
 				<section>
-					<h3>Danke für eure Aufmerksamkeit</h3>
+					<h3>Discriminated Unions</h3>
+					<img class="plain" width="70%" src="images/discriminated_union.png" alt="Discriminated Union" />
 				</section>
-			</div>
+
+				<section>
+					<h3>Listen</h3>
+					<img class="plain" width="70%" src="images/list.png" alt="Listen" />
+				</section>
+
+				<section>
+					<h3>Functor</h3>
+					<img class="plain" width="70%" src="images/option.png" alt="option" />
+				</section>
+
+				<section>
+					<h3>Komposition</h3>
+					<img class="plain" width="70%" src="images/compose.png" alt="compose" />
+				</section>
+
+				<section>
+					<h3>Komposition Problem</h3>
+					<img class="plain" width="70%" src="images/compose_impossible.png" alt="compose impossible" />
+				</section>
+
+				<section>
+					<h3>Monade</h3>
+					<img class="plain" width="70%" src="images/monade_definition.png" alt="monade" />
+					<small>https://www.youtube.com/watch?v=Nq-q2USYetQ&t=60s</small>
+				</section>
+
+				<section>
+					<h3>Monade</h3>
+					<img class="plain" width="70%" src="images/monade_example.png" alt="monade example" />
+				</section>
+			</section>
+
+			<!-- FSharp Erweiterungen -->
+			<section>
+				<!-- Type Provider -->
+				<section>
+					<h3>Type Provider</h3>
+					<img class="plain" width="70%" src="images/type_provider_definition.png" />
+					<ul>
+						<li>Beispiel-Daten auslesen beim Compilieren</li>
+						<li>Datentyp daraus entwickeln</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Type Provider</h3>
+					<img class="plain" width="70%" src="images/type_provider.png" />
+				</section>
+
+				<!-- Pattern Matching + Active Pattern + Regex + Parser -->
+				<section>
+					<h3>Pattern Matching</h3>
+					<img class="plain" width="70%" src="images/parse_list.png" />
+				</section>
+
+				<!-- TODO: Producer - Consumer Muster -->
+				<section>
+					<h3>Producer - Consumer</h3>
+					<img class="plain" width="70%" src="images/producer_consumer_bpmn.png" />
+				</section>
+
+				<section>
+					<h3>Producer - Consumer</h3>
+					<img class="plain" width="70%" src="images/consumer.png" />
+				</section>
+
+				<!-- Bonus: Web Api -->
+				<section>
+					<h3>Giraffe Web API</h3>
+					<img class="plain" width="70%" src="images/giraffe-demo-ausschnitt.png" />
+				</section>
+			</section>
+
+			<!-- ENDE -->
+			<section>
+				<h3>Danke für eure Aufmerksamkeit</h3>
+			</section>
 		</div>
+	</div>
 
-		<!-- <script src="head.min.js"></script> -->
-		<script src="reveal.js"></script>
+	<!-- <script src="head.min.js"></script> -->
+	<script src="reveal.js"></script>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					// { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					// { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					// { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					// { src: 'plugin/zoom-js/zoom.js', async: true },
-					// { src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-		</script>
-	</body>
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				// { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				// { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				// { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				// { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				// { src: 'plugin/zoom-js/zoom.js', async: true },
+				// { src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+</body>
+
 </html>
