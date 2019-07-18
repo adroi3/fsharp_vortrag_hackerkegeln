@@ -15,5 +15,12 @@ Erwähnen, dass es auf Basis eines anderen Vortrages aufgesetzt wurde.
 			<li>Monade</li>
 		</ul>
 	</li>
-	<li>Anwendungsbeispiele</li>
+	<li>Anwendungsbeispiele
+		<ul>
+			<li>Type Provider</li>
+			<li>Pattern Matching</li>
+			<li>Producer - Consumer</li>
+			<li>Web API mit Giraffe</li>
+		</ul>
+	</li>
 </ul>
